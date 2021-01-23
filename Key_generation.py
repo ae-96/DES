@@ -4,9 +4,8 @@ def take_input(key):
     bin_key = bin(int_key)
     bin_key = bin_key[2:].zfill(64)
     key[:] = bin_key
-    for i in range(len(key)) :
-        key[i]= int(key[i])
-
+    for i in range(len(key)):
+        key[i] = int(key[i])
 
 
 def pc1(key):
@@ -70,5 +69,3 @@ def generate_keys(arr_of_keys):
     pc1(key)
     left_rotate_for_all_keys(key, arr_of_keys)
     pc2_for_all_keys(arr_of_keys)
-
-

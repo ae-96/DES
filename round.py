@@ -68,12 +68,12 @@ def sbox(r_boxes, r_32):
         n = (r_boxes[j][1] << 3) + (r_boxes[j][2] << 2) + (r_boxes[j][3] << 1) + r_boxes[j][4]
         value = sbox[j][(m << 4) + n]
         temp_value = bin(value)
-        temp_value = temp_value[:].zfill(4)
+        temp_value = temp_value[2:].zfill(4)
         temp_value_arr = []
         temp_value_arr[:] = temp_value
         for i in range(len(temp_value_arr)):
             temp_value_arr[i] = int(temp_value_arr[i])
-        r_32 = r_32[:] + temp_value_arr
+        r_32[:] = r_32[:] + temp_value_arr
 
 
 def per(r_32):
@@ -101,3 +101,5 @@ def des_round(left, r, key):
     per(r_32)
     r_32 = list(map(lambda x, y: x ^ y, r_32, old_l))
     r[:] = r_32[:]
+    return r
+
